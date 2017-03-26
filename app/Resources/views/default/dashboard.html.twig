@@ -1,0 +1,123 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block stylesheets %}
+  <!--Morris Chart CSS -->
+  <link rel="stylesheet" href="{{ asset('ressources/vendor/admin/assets/plugins/chartist/css/chartist.min.css')}}">
+  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<!-- Start content -->
+                <div class="content">
+
+                    <div class="">
+                        <div class="page-header-title">
+                            <h4 class="page-title">Tableau de bord</h4>
+                        </div>
+                    </div>
+
+                    <div class="page-content-wrapper ">
+
+                        <div class="container">
+
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title text-muted m-t-10 font-light">Total agents</h4>
+                                        </div>
+                                        <div class="panel-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15 text-warning font-light text-right">975</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title text-muted m-t-10 font-light">Total recherches</h4>
+                                        </div>
+                                        <div class="panel-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15 text-success font-light text-right"><i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>1352</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title text-muted m-t-10 font-light">Total de ce mois</h4>
+                                        </div>
+                                        <div class="panel-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15 text-purple font-light text-right"><i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>500</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="panel">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title text-muted m-t-10 font-light">Monthly Earnings</h4>
+                                        </div>
+                                        <div class="panel-body p-t-10">
+                                            <h2 class="m-t-0 m-b-15 text-pink font-light"><i class="mdi mdi-arrow-down-bold-circle-outline m-r-10"></i>56,21,256</h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b>35%</b> From Last 1 Month</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel panel-border panel-primary">
+                                        <div class="panel-body">
+                                            <h4 class="m-t-0 m-b-30">Courbe des recherches d'agents</h4>
+
+                                            <ul class="list-inline widget-chart m-t-20 m-b-15 text-center">
+                                                <li>
+                                                    <h4 class=""><b>3654</b></h4>
+                                                    <p class="text-muted">Total</p>
+                                                </li>
+                                                <li>
+                                                    <h4 class=""><b>954</b></h4>
+                                                    <p class="text-muted">Ce mois</p>
+                                                </li>
+                                            </ul>
+
+                                            <div id="chart-with-area" class="ct-chart ct-golden-section"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div><!-- container -->
+
+
+                    </div> <!-- Page content Wrapper -->
+
+                </div> <!-- content -->
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<!--Morris Chart-->
+<script src="{{ asset('ressources/vendor/admin/assets/plugins/chartist/js/chartist.min.js')}}"></script>
+<script src="{{ asset('ressources/vendor/admin/assets/plugins/chartist/js/chartist-plugin-tooltip.min.js')}}"></script>
+
+<script src="{{ asset('ressources/vendor/admin/assets/pages/dashborad.js')}}"></script>
+
+<script src="{{ asset('ressources/vendor/admin/assets/js/app.js')}}"></script>
+
+<script type="text/javascript">
+    var chart = new Chartist.Line("#chart-with-area", {
+                labels: ["Fev", "Mars", "Avril"],
+                series: [
+                    [0, 75, 125]
+                ]
+            }, { low: 0, showArea: !0, plugins: [Chartist.plugins.tooltip()] });
+</script>
+{% endblock %}
