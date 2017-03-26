@@ -27,7 +27,7 @@ class Classe
      * @var string
      *
      * @Gedmo\Versioned
-     * @ORM\Column(name="libelle", type="string", length=5, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=25, unique=true)
      */
     private $libelle;
 
