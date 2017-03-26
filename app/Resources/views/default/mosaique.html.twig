@@ -1,53 +1,23 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Consultation de l'agent {{ agent.nom|capitalize }} {{ agent.prenoms|capitalize }}{% endblock %}
+{% block title %}Liste mosaique des agents{% endblock %}
 
 {% block body %}
 
     <div class="content">
       <div class="">
         <div class="page-header-title">
-          <h4 class="page-title">L'agent {{ agent.nom }} {{ agent.prenoms }}</h4>
+          <h4 class="page-title">Liste des agents</h4>
         </div>
       </div>
 
       <div class="page-content-wrapper">
         <div class="container">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="panel panel-primary">
-                <div class="panel-body">
-                  <!-- Bouton -->
-                  <div class="row bouton">
-                    <div class="col-sm-4 col-sm-offset-8 text-right">
-                      <a href="{{ path('admin_agent_index')}}">
-                        <button type="button" class="btn btn-primary">Retour à la liste des agents</button>
-                      </a>
-                    </div>
-                  </div>
-                  <!-- \Bouton -->
-                  <!-- Message -->
-                  {% for flash_message in app.session.flashBag.get('notice') %}
-                    {% if flash_message %}
-                    <div class="row">
-                      <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
-                        <div class="alert alert-success alert-dismissible fade in">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                          <a href="#" class="alert-link">NOTIFICATION :</a> {{ flash_message }}
-                        </div>
-                      </div>
-                    </div>
-                    {% endif %}
-                  {% endfor %}
-                  <!-- \Message -->
 
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- Panel -->
           <div class="row">
-            <div class="col-sm-5 col-sm-offset-3">
+            {% for agent in agents %}
+            <div class="col-sm-4">
               <div class="panel">
                 <div class="panel-body user-card">
                   <div class="media-main">
@@ -113,17 +83,16 @@
                   </p>
                   <hr>
                   <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6 col-xs-offset-5">
                       <a href="{{ path('admin_agent_edit', { 'slug': agent.slug }) }}"><button type="button" class="btn btn-primary btn-block waves-effect">Modifier</button></a>
-                    </div>
-                    <div class="col-xs-6">
-                      <a href="{{ path('admin_agent_new')}}"><button type="button" class="btn btn-primary btn-block waves-effect">Ajouter un nouvel agent</button></a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {% endfor %}
           </div>
+          {% include 'default/pagination.html.twig' %}
           <!-- \Panel -->
         </div>
 
