@@ -1,0 +1,14 @@
+.recherche{
+	color: red;
+	font-size: 1.5em;
+	font-style: italic;
+}
+
+.bouton{
+	margin-bottom: 75px;
+	margin-top: 25px;
+}
+
+.matricule{
+	font-weight: bold;
+}

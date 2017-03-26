@@ -2,12 +2,48 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <title>{% block title %}GC Smart 1.0{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset('ressources/vendor/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+      	<link rel="stylesheet" href="{{ asset('ressources/vendor/assets/css/main.css')}}" />
+      	<!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('assets/css/ie9.css')}}" /><![endif]-->
+      	<noscript><link rel="stylesheet" href="{{ asset('ressources/vendor/assets/css/noscript.css')}}" /></noscript>
+      	<link rel="stylesheet" type="text/css" href="{{ asset('ressources/css/gcsmart.css')}}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('ressources/images/amoiries.png') }}" />
     </head>
     <body>
+      <div id="wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span><img src="ressources/images/amoiries.png" ></span>
+        </div>
+        <div class="content" >
+          <div class="inner">
+            <h1>GC SMART 1.0</h1>
+            <b><i><p align="center" style="font-family:'Courier New', Courier, monospace"><!--[-->Bienvenue sur la plate forme de gestion et de contrôle des agents du ministère du commerce de Côte d'ivoire.<br> une solution pour gagner du temps sur l'administration et le contrôle du personnel <!--]--><br />
+                  <!--[--> Une solution souple, évolutive et ouverte !<!--]--></p></i></b>
+          </div>
+        </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+          <!-- Footer -->
+      		<footer id="footer">
+      			<p class="copyright">Copyright &copy; 2017 | GC SMART 1.0 | Tous droits Réservés | Conception:<a style target="_blank" href="http://nehikarts.com"><strong style="color: #31aae2;">NEHIK'Arts</strong></span></a></p>
+      		</footer>
+
+      	</div>
+
+      		<!-- BG -->
+      	<div id="bg"></div>
+        {% block javascripts %}
+        <script src="{{ asset('ressources/vendor/assets/js/jquery.min.js')}}"></script>
+  			<script src="{{ asset('ressources/vendor/assets/js/skel.min.js')}}"></script>
+  			<script src="{{ asset('ressources/vendor/assets/js/util.js')}}"></script>
+  			<script src="{{ asset('ressources/vendor/assets/js/main.js')}}"></script>
+        {% endblock %}
     </body>
 </html>
