@@ -54,4 +54,18 @@ class AdminController extends Controller
           'pagination' => $pagination,
       ));
     }
+
+    /**
+     * @Route("/agent/nombre", name="admin_agent_nombre")
+     */
+    public function nombreAction()
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgent();
+
+      return $this->render('Default/agent_nombre.html.twig', array(
+          'nombre' => $nombre,
+      ));
+    }
 }
