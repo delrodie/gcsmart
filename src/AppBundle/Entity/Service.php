@@ -78,6 +78,11 @@ class Service
      */
     private $modifieLe;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Agent", mappedBy="service")
+     */
+     private $agents;
+
 
     /**
      * Get id
@@ -255,5 +260,46 @@ class Service
     public function getModifieLe()
     {
         return $this->modifieLe;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->agents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add agent
+     *
+     * @param \AppBundle\Entity\Agent $agent
+     *
+     * @return Service
+     */
+    public function addAgent(\AppBundle\Entity\Agent $agent)
+    {
+        $this->agents[] = $agent;
+
+        return $this;
+    }
+
+    /**
+     * Remove agent
+     *
+     * @param \AppBundle\Entity\Agent $agent
+     */
+    public function removeAgent(\AppBundle\Entity\Agent $agent)
+    {
+        $this->agents->removeElement($agent);
+    }
+
+    /**
+     * Get agents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAgents()
+    {
+        return $this->agents;
     }
 }
