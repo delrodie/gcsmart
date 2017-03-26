@@ -27,7 +27,7 @@ class Echelon
      * @var string
      *
      * @Gedmo\Versioned
-     * @ORM\Column(name="libelle", type="string", length=5, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=15, unique=true)
      */
     private $libelle;
 
@@ -98,7 +98,7 @@ class Echelon
      */
     public function setLibelle($libelle)
     {
-        $this->libelle = strtoupper($libelle);
+        $this->libelle = $libelle;
 
         return $this;
     }
