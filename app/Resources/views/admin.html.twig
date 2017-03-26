@@ -46,15 +46,16 @@
                                     <a href="#" class="dropdown-toggle profile waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
                                         <img src="{{ asset('ressources/images/avatar.png')}}" alt="user-img" class="img-circle">
                                         <span class="profile-username">
-                                            Delrodie <span class="caret"></span>
+                                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                              {{ 'layout.user'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                                            {% endif %}
+                                            <span class="caret"></span>
                                         </span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)"> Profile</a></li>
-                                        <li><a href="javascript:void(0)">Changer le mot de passe </a></li>
-                                        <li><a href="javascript:void(0)"> Lock screen</a></li>
+                                        <li><a href="{{ path('fos_user_change_password')}}">Changer le mot de passe </a></li>
                                         <li class="divider"></li>
-                                        <li><a href="javascript:void(0)"> Logout</a></li>
+                                        <li><a href="{{ path('fos_user_security_logout')}}"> Deconnexion</a></li>
                                     </ul>
                                 </li>
                             </ul>
