@@ -27,7 +27,7 @@ class Service
      * @var string
      *
      * @Gedmo\Versioned
-     * @ORM\Column(name="libelle", type="string", length=50)
+     * @ORM\Column(name="libelle", type="string", length=50, unique=true)
      */
     private $libelle;
 
@@ -98,7 +98,7 @@ class Service
      */
     public function setLibelle($libelle)
     {
-        $this->libelle = $libelle;
+        $this->libelle = strtoupper($libelle);
 
         return $this;
     }
