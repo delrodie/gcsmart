@@ -15,6 +15,7 @@
                 e("input#moreoptions").maxlength({ alwaysShow: !0, warningClass: "label label-success", limitReachedClass: "label label-danger" }),
                 e("input#alloptions").maxlength({ alwaysShow: !0, warningClass: "label label-success", limitReachedClass: "label label-danger", separator: " out of ", preText: "You typed ", postText: " chars available.", validate: !0 }), e("textarea#textarea").maxlength({ alwaysShow: !0 }),
                 e("input#placement").maxlength({ alwaysShow: !0, placement: "top-left" }),
+                e("input#appbundle_service_libelle").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e(".vertical-spin").TouchSpin({ verticalbuttons: !0, verticalupclass: "ion-plus-round", verticaldownclass: "ion-minus-round" }),
                 e("input[name='demo1']").TouchSpin({ min: 0, max: 100, step: .1, decimals: 2, boostat: 5, maxboostedstep: 10, postfix: "%" }),
                 e("input[name='demo2']").TouchSpin({ min: -1e9, max: 1e9, stepinterval: 50, maxboostedstep: 1e7, prefix: "$" }),
