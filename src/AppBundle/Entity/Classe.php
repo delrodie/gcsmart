@@ -6,13 +6,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Echelon
+ * Classe
  *
- * @ORM\Table(name="echelon")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\EchelonRepository")
+ * @ORM\Table(name="classe")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ClasseRepository")
  * @Gedmo\Loggable
  */
-class Echelon
+class Classe
 {
     /**
      * @var int
@@ -27,7 +27,7 @@ class Echelon
      * @var string
      *
      * @Gedmo\Versioned
-     * @ORM\Column(name="libelle", type="string", length=15, unique=true)
+     * @ORM\Column(name="libelle", type="string", length=25, unique=true)
      */
     private $libelle;
 
@@ -94,11 +94,11 @@ class Echelon
      *
      * @param string $libelle
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setLibelle($libelle)
     {
-        $this->libelle = $libelle;
+        $this->libelle = strtoupper($libelle);
 
         return $this;
     }
@@ -118,7 +118,7 @@ class Echelon
      *
      * @param boolean $statut
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setStatut($statut)
     {
@@ -142,7 +142,7 @@ class Echelon
      *
      * @param string $slug
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setSlug($slug)
     {
@@ -166,7 +166,7 @@ class Echelon
      *
      * @param string $publiePar
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setPubliePar($publiePar)
     {
@@ -190,7 +190,7 @@ class Echelon
      *
      * @param string $modifiePar
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setModifiePar($modifiePar)
     {
@@ -214,7 +214,7 @@ class Echelon
      *
      * @param \DateTime $publieLe
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setPublieLe($publieLe)
     {
@@ -238,7 +238,7 @@ class Echelon
      *
      * @param \DateTime $modifieLe
      *
-     * @return Echelon
+     * @return Classe
      */
     public function setModifieLe($modifieLe)
     {

@@ -17,6 +17,7 @@
                 e("input#placement").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e("input#appbundle_service_libelle").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e("input#appbundle_grade_libelle").maxlength({ alwaysShow: !0, placement: "top-left" }),
+                e("input#appbundle_classe_libelle").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e("input#appbundle_echelon_libelle").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e(".vertical-spin").TouchSpin({ verticalbuttons: !0, verticalupclass: "ion-plus-round", verticaldownclass: "ion-minus-round" }),
                 e("input[name='demo1']").TouchSpin({ min: 0, max: 100, step: .1, decimals: 2, boostat: 5, maxboostedstep: 10, postfix: "%" }),
