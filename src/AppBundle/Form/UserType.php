@@ -51,7 +51,6 @@ class UserType extends AbstractType
               'choices' => array(
                 'UTILISATEUR '  => 'ROLE_USER',
                 'ADMINISTRATEUR '  => 'ROLE_ADMIN',
-                'SUPER ADMINISTRATEUR '  => 'ROLE_SUPER_ADMIN',
               ),
               'multiple'  => true,
               'expanded'  => true

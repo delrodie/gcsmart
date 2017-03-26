@@ -12,3 +12,11 @@
 .matricule{
 	font-weight: bold;
 }
+
+.bouton-ajout{
+	margin-top: 25px;
+}
+
+.required{
+	color: red;
+}
