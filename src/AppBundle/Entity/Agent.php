@@ -82,6 +82,20 @@ class Agent
     /**
      * @var string
      *
+     * @ORM\Column(name="datefonc", type="string", length=10, nullable=true)
+     */
+    private $datefonc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieufonc", type="string", length=20, nullable=true)
+     */
+    private $lieufonc;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=75, nullable=true)
      */
     private $email;
@@ -141,28 +155,33 @@ class Agent
     private $modifieLe;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agent", inversedBy="agents")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Classe", inversedBy="agents")
      * @ORM\JoinColumn(name="classe_id", referencedColumnName="id")
      */
     private $classe;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agent", inversedBy="agents")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Echelon", inversedBy="agents")
      * @ORM\JoinColumn(name="echelon_id", referencedColumnName="id")
      */
     private $echelon;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agent", inversedBy="agents")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Grade", inversedBy="agents")
      * @ORM\JoinColumn(name="grade_id", referencedColumnName="id")
      */
     private $grade;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Agent", inversedBy="agents")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Service", inversedBy="agents")
      * @ORM\JoinColumn(name="service_id", referencedColumnName="id")
      */
     private $service;
+
+    /**
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Avatar", cascade={"persist", "remove"})
+     */
+     private $avatar;
 
 
     /**
@@ -175,6 +194,8 @@ class Agent
         return $this->id;
     }
 
+
+
     /**
      * Set matricule
      *
@@ -184,7 +205,7 @@ class Agent
      */
     public function setMatricule($matricule)
     {
-        $this->matricule = $matricule;
+        $this->matricule = strtoupper($matricule);
 
         return $this;
     }
@@ -208,7 +229,7 @@ class Agent
      */
     public function setCni($cni)
     {
-        $this->cni = $cni;
+        $this->cni = strtoupper($cni);
 
         return $this;
     }
@@ -232,7 +253,7 @@ class Agent
      */
     public function setNom($nom)
     {
-        $this->nom = $nom;
+        $this->nom = strtoupper($nom);
 
         return $this;
     }
@@ -256,7 +277,7 @@ class Agent
      */
     public function setPrenoms($prenoms)
     {
-        $this->prenoms = $prenoms;
+        $this->prenoms = strtoupper($prenoms);
 
         return $this;
     }
@@ -368,6 +389,54 @@ class Agent
     }
 
     /**
+     * Set datefonc
+     *
+     * @param string $datefonc
+     *
+     * @return Agent
+     */
+    public function setDatefonc($datefonc)
+    {
+        $this->datefonc = $datefonc;
+
+        return $this;
+    }
+
+    /**
+     * Get datefonc
+     *
+     * @return string
+     */
+    public function getDatefonc()
+    {
+        return $this->datefonc;
+    }
+
+    /**
+     * Set lieufonc
+     *
+     * @param string $lieufonc
+     *
+     * @return Agent
+     */
+    public function setLieufonc($lieufonc)
+    {
+        $this->lieufonc = $lieufonc;
+
+        return $this;
+    }
+
+    /**
+     * Get lieufonc
+     *
+     * @return string
+     */
+    public function getLieufonc()
+    {
+        return $this->lieufonc;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
@@ -432,7 +501,7 @@ class Agent
     /**
      * Get statut
      *
-     * @return bool
+     * @return boolean
      */
     public function getStatut()
     {
@@ -562,11 +631,11 @@ class Agent
     /**
      * Set classe
      *
-     * @param \AppBundle\Entity\Agent $classe
+     * @param \AppBundle\Entity\Classe $classe
      *
      * @return Agent
      */
-    public function setClasse(\AppBundle\Entity\Agent $classe = null)
+    public function setClasse(\AppBundle\Entity\Classe $classe = null)
     {
         $this->classe = $classe;
 
@@ -576,7 +645,7 @@ class Agent
     /**
      * Get classe
      *
-     * @return \AppBundle\Entity\Agent
+     * @return \AppBundle\Entity\Classe
      */
     public function getClasse()
     {
@@ -586,11 +655,11 @@ class Agent
     /**
      * Set echelon
      *
-     * @param \AppBundle\Entity\Agent $echelon
+     * @param \AppBundle\Entity\Echelon $echelon
      *
      * @return Agent
      */
-    public function setEchelon(\AppBundle\Entity\Agent $echelon = null)
+    public function setEchelon(\AppBundle\Entity\Echelon $echelon = null)
     {
         $this->echelon = $echelon;
 
@@ -600,7 +669,7 @@ class Agent
     /**
      * Get echelon
      *
-     * @return \AppBundle\Entity\Agent
+     * @return \AppBundle\Entity\Echelon
      */
     public function getEchelon()
     {
@@ -610,11 +679,11 @@ class Agent
     /**
      * Set grade
      *
-     * @param \AppBundle\Entity\Agent $grade
+     * @param \AppBundle\Entity\Grade $grade
      *
      * @return Agent
      */
-    public function setGrade(\AppBundle\Entity\Agent $grade = null)
+    public function setGrade(\AppBundle\Entity\Grade $grade = null)
     {
         $this->grade = $grade;
 
@@ -624,7 +693,7 @@ class Agent
     /**
      * Get grade
      *
-     * @return \AppBundle\Entity\Agent
+     * @return \AppBundle\Entity\Grade
      */
     public function getGrade()
     {
@@ -634,11 +703,11 @@ class Agent
     /**
      * Set service
      *
-     * @param \AppBundle\Entity\Agent $service
+     * @param \AppBundle\Entity\Service $service
      *
      * @return Agent
      */
-    public function setService(\AppBundle\Entity\Agent $service = null)
+    public function setService(\AppBundle\Entity\Service $service = null)
     {
         $this->service = $service;
 
@@ -648,10 +717,34 @@ class Agent
     /**
      * Get service
      *
-     * @return \AppBundle\Entity\Agent
+     * @return \AppBundle\Entity\Service
      */
     public function getService()
     {
         return $this->service;
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param \AppBundle\Entity\Avatar $avatar
+     *
+     * @return Agent
+     */
+    public function setAvatar(\AppBundle\Entity\Avatar $avatar = null)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return \AppBundle\Entity\Avatar
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

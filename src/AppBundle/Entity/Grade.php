@@ -302,4 +302,8 @@ class Grade
     {
         return $this->agents;
     }
+
+    public function __toString() {
+        return $this->getLibelle();
+    }
 }

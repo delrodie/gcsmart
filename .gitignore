@@ -15,3 +15,7 @@
 /vendor/
 /web/bundles/
 /src/AppBundle/Entity/*~
+/web/ressources/uploads/agents/*.jpeg
+/web/ressources/uploads/agents/*.jpg
+/web/ressources/uploads/agents/*.png
+/web/ressources/uploads/agents/*.gif
