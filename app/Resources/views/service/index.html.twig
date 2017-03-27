@@ -53,6 +53,7 @@
                     <tr class="text-center">
                       <td>N°</td>
                       <td>SERVICES</td>
+                      <td>AGENTS</td>
                       <td>ETATS</td>
                     </tr>
                   </thead>
@@ -63,6 +64,11 @@
                         <tr>
                           <td class="text-right">{{ i }}</td>
                           <td><a href="{{ path('admin_service_edit', { 'slug': service.slug }) }}">{{ service.libelle }}</a></td>
+                          <td class="text-center">
+                            <a href="{{ path('service_agent_liste', { 'id': service.id }) }}">
+                              {{ render(url('service_agent_nombre', {'id': service.id })) }}
+                            </a>
+                          </td>
                           <td class="text-center">
                             {% if service.statut %}
                               Activé

@@ -1,6 +1,8 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}Liste des agents{% endblock %}
+{% block title %}
+  Liste des agents {% if service %}du service {{ service.libelle|capitalize }}{% endif %}
+{% endblock %}
 
 {% block stylesheets %}
 <!-- DataTables -->
@@ -18,7 +20,7 @@
     <div class="content">
       <div class="">
         <div class="page-header-title">
-          <h4 class="page-title">Liste des agents</h4>
+          <h4 class="page-title">Liste des agents {% if service %}du service {{ service.libelle|capitalize }}{% endif %}</h4>
         </div>
         <div class="row">
           <div class="col-md-12">
@@ -33,20 +35,6 @@
                   </div>
                 </div>
                 <!-- \Bouton -->
-                <!-- Message -->
-                {% for flash_message in app.session.flashBag.get('notice') %}
-                  {% if flash_message %}
-                  <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">
-                      <div class="alert alert-success alert-dismissible fade in">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <a href="#" class="alert-link">NOTIFICATION :</a> {{ flash_message }}
-                      </div>
-                    </div>
-                  </div>
-                  {% endif %}
-                {% endfor %}
-                <!-- \Message -->
                 <!-- Tableau -->
                 <table id="datatable-buttons" class="table table-striped table-bordered">
                   <thead>
@@ -56,8 +44,9 @@
                       <td>CNI</td>
                       <td>NOM & PRENOMS</td>
                       <td>SEXE</td>
-                      <td>SERVICES</td>
                       <td>FONCTIONS</td>
+                      <td>GRADES</td>
+                      <td>ECHELONS</td>
                       <td>CONTACTS</td>
                     </tr>
                   </thead>
@@ -71,8 +60,9 @@
                           <td class="text-center">{{ agent.cni }}</td>
                           <td class="text-left">{{ agent.nom }} {{ agent.prenoms }}</td>
                           <td class="text-center">{{ agent.sexe }}</td>
-                          <td class="text-left">{{ agent.service|capitalize }}</td>
                           <td class="text-left">{{ agent.fonction|capitalize }}</td>
+                          <td class="text-center">{{ agent.grade|upper }}</td>
+                          <td class="text-left">{{ agent.echelon|capitalize }}</td>
                           <td class="text-right">{{ agent.contact }}</td>
                         </tr>
                     {% endfor %}

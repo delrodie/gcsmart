@@ -89,4 +89,31 @@ class RechercheRepository extends \Doctrine\ORM\EntityRepository
           return $recup;
       }
 
+   /**
+    * Liste des recherches par ordre decroissant des dates
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 27/03/2017
+    * Since: v1.0
+    */
+    public function findAllOrderedByDate()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT r
+            FROM AppBundle:Recherche r
+            ORDER BY r.date DESC
+        ')
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+
+    }
+
 }

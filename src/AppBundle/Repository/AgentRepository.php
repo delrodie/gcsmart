@@ -86,23 +86,25 @@ class AgentRepository extends \Doctrine\ORM\EntityRepository
 
        $recup =  $query->getSingleScalarResult();
 
-       // Si compteur est egal a 0 alors initialiser
-       /*if ($recup < 10){
-           $suffixe = $recup ;
-           $code = '000'.$suffixe;
-       }
-       elseif ($recup < 100) {
-         $suffixe = $recup ;
-         $code = '00'.$suffixe;
-       }
-       elseif ($recup < 1000) {
-         $suffixe = $recup ;
-         $code = '0'.$suffixe;
-       }
-       else{
-           $code = $recup;
-       }*/
-
        return $recup;
    }
+
+   /**
+     * Calcule du nombre des agents du service
+     *
+     * @author Delrodie AMOIKON
+     * Date: 27/03/2017
+     */
+    public function getNombreAgentParService($id){
+        $qb = $this->createQueryBuilder('a')
+                ->select('count(a.id)')
+                ->andWhere('a.service = :id')
+                ->setParameter('id', $id)
+                ;
+        $query = $qb->getQuery();
+
+        $recup =  $query->getSingleScalarResult();
+
+        return $recup;
+    }
 }

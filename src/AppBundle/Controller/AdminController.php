@@ -149,10 +149,55 @@ class AdminController extends Controller
     {
       $em = $this->getDoctrine()->getManager();
 
-      $recherches = $em->getRepository('AppBundle:Recherche')->findAll();
+      $recherches = $em->getRepository('AppBundle:Recherche')->findAllOrderedByDate();
 
       return $this->render('recherche/index.html.twig', array(
           'recherches' => $recherches,
+      ));
+    }
+
+    /**
+     * @Route("/agent/{matricule}", name="admin_recherche_agent")
+     */
+    public function agentmatriculeAction($matricule)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $agent = $em->getRepository('AppBundle:Agent')->findOneByMatricule($matricule);
+
+      return $this->render('default/recherche_agent.html.twig', array(
+          'agent' => $agent,
+      ));
+    }
+
+    /**
+     * @Route("/service/{id}", name="service_agent_nombre")
+     */
+    public function serviceagentnombreAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParService($id);
+
+      return $this->render('Default/recherche_total_nombre.html.twig', array(
+          'nombre' => $nombre,
+      ));
+    }
+
+    /**
+     * @Route("/service/{id}/liste-des-agents", name="service_agent_liste")
+     */
+    public function serviceagentlisteAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $agents = $em->getRepository('AppBundle:Agent')->findByService($id);
+
+      $service = $em->getRepository('AppBundle:Service')->findOneById($id);
+
+      return $this->render('default/agent_liste_service.html.twig', array(
+          'agents' => $agents,
+          'service' => $service,
       ));
     }
 }
