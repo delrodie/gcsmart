@@ -57,7 +57,7 @@ class Recherche
      */
     public function setMatricule($matricule)
     {
-        $this->matricule = $matricule;
+        $this->matricule = strtoupper($matricule);
 
         return $this;
     }
