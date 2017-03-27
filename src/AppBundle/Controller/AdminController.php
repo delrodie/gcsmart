@@ -200,4 +200,35 @@ class AdminController extends Controller
           'service' => $service,
       ));
     }
+
+    /**
+     * @Route("/grade/{id}", name="grade_agent_nombre")
+     */
+    public function gradeagentnombreAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParGrade($id);
+
+      return $this->render('Default/recherche_total_nombre.html.twig', array(
+          'nombre' => $nombre,
+      ));
+    }
+
+    /**
+     * @Route("/grade/{id}/liste-des-agents", name="grade_agent_liste")
+     */
+    public function gradeagentlisteAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $agents = $em->getRepository('AppBundle:Agent')->findByGrade($id);
+
+      $grade = $em->getRepository('AppBundle:Grade')->findOneById($id);
+
+      return $this->render('default/agent_liste_grade.html.twig', array(
+          'agents' => $agents,
+          'grade' => $grade,
+      ));
+    }
 }

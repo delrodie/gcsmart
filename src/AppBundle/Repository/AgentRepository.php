@@ -107,4 +107,23 @@ class AgentRepository extends \Doctrine\ORM\EntityRepository
 
         return $recup;
     }
+
+    /**
+      * Calcule du nombre des agents du grade
+      *
+      * @author Delrodie AMOIKON
+      * Date: 27/03/2017
+      */
+     public function getNombreAgentParGrade($id){
+         $qb = $this->createQueryBuilder('a')
+                 ->select('count(a.id)')
+                 ->andWhere('a.grade = :id')
+                 ->setParameter('id', $id)
+                 ;
+         $query = $qb->getQuery();
+
+         $recup =  $query->getSingleScalarResult();
+
+         return $recup;
+     }
 }
