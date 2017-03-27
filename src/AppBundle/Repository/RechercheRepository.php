@@ -10,4 +10,83 @@ namespace AppBundle\Repository;
  */
 class RechercheRepository extends \Doctrine\ORM\EntityRepository
 {
+  /**
+   * Calcule du nombre total de recherches effectuées
+   *
+   * Author: Delrodie AMOIKON
+   * Date: 27/03/2017
+   */
+   public function getNombreTotalRecherche()
+   {
+       $qb = $this->createQueryBuilder('r')
+           ->select('count(r.id)')
+       ;
+
+       $query = $qb->getQuery();
+
+       $recup =  $query->getSingleScalarResult();
+
+       return $recup;
+   }
+
+   /**
+     * Calcule du nombre de recherche dans le mois en cours
+     *
+     * @author Delrodie AMOIKON
+     * Date: 27/03/2017
+     */
+    public function getNombreRechercheDuMoisEncours(){
+        $qb = $this->createQueryBuilder('r')
+                ->select('count(r.id)')
+                ->andWhere('r.date BETWEEN :debut AND :fin')
+                ->setParameter('debut', date('Y-m-01 00:00:00', time()))
+                ->setParameter('fin', date('Y-m-31 23:59:59', time()))
+                ;
+        $query = $qb->getQuery();
+
+        $recup =  $query->getSingleScalarResult();
+
+        return $recup;
+    }
+
+    /**
+      * Calcule du nombre de recherche dans l'année en cours
+      *
+      * @author Delrodie AMOIKON
+      * Date: 27/03/2017
+      */
+     public function getNombreRechercheAnneeEncours(){
+         $qb = $this->createQueryBuilder('r')
+                 ->select('count(r.id)')
+                 ->andWhere('r.date BETWEEN :debut AND :fin')
+                 ->setParameter('debut', date('Y-01-01 00:00:00', time()))
+                 ->setParameter('fin', date('Y-12-31 23:59:59', time()))
+                 ;
+         $query = $qb->getQuery();
+
+         $recup =  $query->getSingleScalarResult();
+
+         return $recup;
+     }
+
+     /**
+       * Calcule du nombre de recherche dans le mois en cours
+       *
+       * @author Delrodie AMOIKON
+       * Date: 27/03/2017
+       */
+      public function getNombreRechercheMois($mm){
+          $qb = $this->createQueryBuilder('r')
+                  ->select('count(r.id)')
+                  ->andWhere('r.date BETWEEN :debut AND :fin')
+                  ->setParameter('debut', date('Y-'.$mm.'-01 00:00:00', time()))
+                  ->setParameter('fin', date('Y-'.$mm.'-31 23:59:59', time()))
+                  ;
+          $query = $qb->getQuery();
+
+          $recup =  $query->getSingleScalarResult();
+
+          return $recup;
+      }
+
 }
