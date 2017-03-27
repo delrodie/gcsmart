@@ -35,6 +35,7 @@
                 e("input#appbundle_agent_contact").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e("input#appbundle_agent_fonction").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e("input#appbundle_agent_lieufonc").maxlength({ alwaysShow: !0, placement: "top-left" }),
+                e("input#appbundle_recherche_matricule").maxlength({ alwaysShow: !0, placement: "top-left" }),
                 e(".vertical-spin").TouchSpin({ verticalbuttons: !0, verticalupclass: "ion-plus-round", verticaldownclass: "ion-minus-round" }),
                 e("input[name='demo1']").TouchSpin({ min: 0, max: 100, step: .1, decimals: 2, boostat: 5, maxboostedstep: 10, postfix: "%" }),
                 e("input[name='demo2']").TouchSpin({ min: -1e9, max: 1e9, stepinterval: 50, maxboostedstep: 1e7, prefix: "$" }),

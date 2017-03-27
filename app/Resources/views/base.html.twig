@@ -4,13 +4,17 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <title>{% block title %}GC Smart 1.0{% endblock %}</title>
+
         {% block stylesheets %}
         <link href="{{ asset('ressources/vendor/admin/assets/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-      	<link rel="stylesheet" href="{{ asset('ressources/vendor/assets/css/main.css')}}" />
+        <link href="{{ asset('ressources/vendor/admin/assets/css/icons.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('ressources/vendor/admin/assets/css/style.css')}}" rel="stylesheet" type="text/css">
+      	<link href="{{ asset('ressources/vendor/assets/css/main.css')}}" rel="stylesheet" />
       	<!--[if lte IE 9]><link rel="stylesheet" href="{{ asset('assets/css/ie9.css')}}" /><![endif]-->
       	<noscript><link rel="stylesheet" href="{{ asset('ressources/vendor/assets/css/noscript.css')}}" /></noscript>
       	<link rel="stylesheet" type="text/css" href="{{ asset('ressources/css/gcsmart.css')}}">
         {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('ressources/images/amoiries.png') }}" />
     </head>
     <body>
@@ -18,16 +22,7 @@
 
       <!-- Header -->
       <header id="header">
-        <div class="logo">
-          <span><img src="ressources/images/amoiries.png" ></span>
-        </div>
-        <div class="content" >
-          <div class="inner">
-            <h1>GC SMART 1.0</h1>
-            <b><i><p align="center" style="font-family:'Courier New', Courier, monospace"><!--[-->Bienvenue sur la plate forme de gestion et de contrôle des agents du ministère du commerce de Côte d'ivoire.<br> une solution pour gagner du temps sur l'administration et le contrôle du personnel <!--]--><br />
-                  <!--[--> Une solution souple, évolutive et ouverte !<!--]--></p></i></b>
-          </div>
-        </div>
+
         {% block body %}{% endblock %}
 
           <!-- Footer -->
@@ -44,6 +39,7 @@
   			<script src="{{ asset('ressources/vendor/assets/js/skel.min.js')}}"></script>
   			<script src="{{ asset('ressources/vendor/assets/js/util.js')}}"></script>
   			<script src="{{ asset('ressources/vendor/assets/js/main.js')}}"></script>
+        <script src="{{ asset('ressources/vendor/admin/assets/js/bootstrap.min.js')}}"></script>
         {% endblock %}
     </body>
 </html>
