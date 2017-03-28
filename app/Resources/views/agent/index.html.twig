@@ -67,7 +67,7 @@
                         {% set i = i + 1 %}
                         <tr>
                           <td class="text-right">{{ i }}</td>
-                          <td class="text-center"><a href="{{ path('admin_agent_show', { 'slug': agent.slug }) }}">{{ agent.matricule }}</a></td>
+                          <td class="text-center"><a href="{{ path('admin_agent_show', { 'slug': agent.slug }) }}" title="Plus d'info">{{ agent.matricule }}</a></td>
                           <td class="text-center">{{ agent.cni }}</td>
                           <td class="text-left">{{ agent.nom }} {{ agent.prenoms }}</td>
                           <td class="text-center">{{ agent.sexe }}</td>
