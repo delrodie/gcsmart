@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Rechagents list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Matricule</th>
+                <th>Pass</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rechagent in rechagents %}
+            <tr>
+                <td><a href="{{ path('rechagent_show', { 'id': rechagent.id }) }}">{{ rechagent.id }}</a></td>
+                <td>{{ rechagent.matricule }}</td>
+                <td>{{ rechagent.pass }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('rechagent_show', { 'id': rechagent.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('rechagent_edit', { 'id': rechagent.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rechagent_new') }}">Create a new rechagent</a>
+        </li>
+    </ul>
+{% endblock %}
