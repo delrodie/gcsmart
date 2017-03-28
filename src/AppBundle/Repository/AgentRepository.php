@@ -145,4 +145,33 @@ class AgentRepository extends \Doctrine\ORM\EntityRepository
 
           return $recup;
       }
+
+      /**
+        * CRecherche de l'agent
+        *
+        * @author Delrodie AMOIKON
+        * Date: 27/03/2017
+        */
+       public function getAgentByMatriculeEtPass($matricule, $pass){
+         $em = $this->getEntityManager();
+      $qb = $em->createQuery('
+          SELECT a
+          FROM AppBundle:Agent a
+          WHERE a.matricule = :mat
+          AND a.datepass = :pass
+      ')
+        ->setParameter('mat', $matricule)
+        ->setParameter('pass', $pass)
+      ;
+      try {
+          $result = $qb->getSingleResult();
+
+          die($result);
+
+          return $result;
+
+      } catch (NoResultException $e) {
+          return $e;
+      }
+       }
 }
