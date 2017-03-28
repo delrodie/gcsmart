@@ -126,4 +126,23 @@ class AgentRepository extends \Doctrine\ORM\EntityRepository
 
          return $recup;
      }
+
+     /**
+       * Calcule du nombre des agents de l'echelon
+       *
+       * @author Delrodie AMOIKON
+       * Date: 27/03/2017
+       */
+      public function getNombreAgentParEchelon($id){
+          $qb = $this->createQueryBuilder('a')
+                  ->select('count(a.id)')
+                  ->andWhere('a.echelon = :id')
+                  ->setParameter('id', $id)
+                  ;
+          $query = $qb->getQuery();
+
+          $recup =  $query->getSingleScalarResult();
+
+          return $recup;
+      }
 }

@@ -121,7 +121,7 @@ class AdminController extends Controller
       $annee = $em->getRepository('AppBundle:Recherche')->getNombreRechercheAnneeEncours();
       $mois = $em->getRepository('AppBundle:Recherche')->getNombreRechercheDuMoisEncours();
 
-      $nombre = $mois*100/$annee;
+      $nombre = round($mois*100/$annee, 1);
 
       return $this->render('Default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
@@ -229,6 +229,37 @@ class AdminController extends Controller
       return $this->render('default/agent_liste_grade.html.twig', array(
           'agents' => $agents,
           'grade' => $grade,
+      ));
+    }
+
+    /**
+     * @Route("/echelon/{id}", name="echelon_agent_nombre")
+     */
+    public function echelonagentnombreAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParEchelon($id);
+
+      return $this->render('Default/recherche_total_nombre.html.twig', array(
+          'nombre' => $nombre,
+      ));
+    }
+
+    /**
+     * @Route("/echelon/{id}/liste-des-agents", name="echelon_agent_liste")
+     */
+    public function echelonagentlisteAction($id)
+    {
+      $em = $this->getDoctrine()->getManager();
+
+      $agents = $em->getRepository('AppBundle:Agent')->findByEchelon($id);
+
+      $echelon = $em->getRepository('AppBundle:Echelon')->findOneById($id);
+
+      return $this->render('default/agent_liste_echelon.html.twig', array(
+          'agents' => $agents,
+          'echelon' => $echelon,
       ));
     }
 }
