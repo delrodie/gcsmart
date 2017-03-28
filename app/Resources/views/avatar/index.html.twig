@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Avatars list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Alt</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avatar in avatars %}
+            <tr>
+                <td><a href="{{ path('avatar_show', { 'id': avatar.id }) }}">{{ avatar.id }}</a></td>
+                <td>{{ avatar.url }}</td>
+                <td>{{ avatar.alt }}</td>
+                <td>{% if avatar.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('avatar_show', { 'id': avatar.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('avatar_edit', { 'id': avatar.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('avatar_new') }}">Create a new avatar</a>
+        </li>
+    </ul>
+{% endblock %}

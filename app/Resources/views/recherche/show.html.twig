@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="logo">
+  <span><img class="thumb-lg img-circle" src="{{ asset('ressources/images/avatar.png')}}" alt=""></span>
+</div>
+<div class="content" >
+  <div class="inner">
+    <h2>GC SMART 1.0</h2>
+    <h4>Fonction</h4>
+  </div>
+</div>
+<nav>
+    <ul>
+      <li style="background-color:#6C0"><a href="#recherche"><b>RECHERCHER L'AGENT</b></a></li>
+      <li style="background-color:#F00"><a href="{{ path('admin')}}"><b>ESPACE RESSOURCE HUMAINE</b></a></li>
+      <li style="background-color:#F93"><a href="http://www.commerce.gouv.ci/contact.php"><b>Contact</b></a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main -->
+<div id="main">
+
+  <!-- Recherche -->
+  <article id="recherche">
+    <div align="center">
+              <form method="post"  action="recherche.php#reponse">
+                <div class="row">
+                    <div class="col-xs-10 text-right">
+                        <input type="text" class="form-control recherche" placeholder="Entrez le matricule de l'agent...">
+                    </div>
+                    <div class="col-xs-2 text-left">
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+            </div>
+          </form>
+        </div>
+        </article>
+</div>
+{% endblock %}

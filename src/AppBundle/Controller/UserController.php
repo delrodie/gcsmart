@@ -55,6 +55,8 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush($user);
 
+            $this->addFlash('notice', "L'utilisateur ".$user->getUsername()." a été crée avec succès.!");
+
             return $this->redirectToRoute('admin_user_index');
         }
 
@@ -100,6 +102,8 @@ class UserController extends Controller
         $user->setPassword($encoded);
 
           $this->getDoctrine()->getManager()->flush();
+
+          $this->addFlash('notice', "L'utilisateur ".$user->getUsername()." a été modifié avec succès.!");
 
           return $this->redirectToRoute('admin_user_index');
         }
