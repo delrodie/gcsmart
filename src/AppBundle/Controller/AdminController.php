@@ -171,7 +171,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/service/{id}", name="service_agent_nombre")
+     * @Route("/agent-par-service/{id}", name="service_agent_nombre")
      */
     public function serviceagentnombreAction($id)
     {
@@ -202,7 +202,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/grade/{id}", name="grade_agent_nombre")
+     * @Route("/agent-par-grade/{id}", name="grade_agent_nombre")
      */
     public function gradeagentnombreAction($id)
     {
@@ -233,7 +233,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/echelon/{id}", name="echelon_agent_nombre")
+     * @Route("/agent-par-echelon/{id}", name="echelon_agent_nombre")
      */
     public function echelonagentnombreAction($id)
     {
