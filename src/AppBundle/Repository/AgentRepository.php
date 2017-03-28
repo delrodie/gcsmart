@@ -166,8 +166,6 @@ class AgentRepository extends \Doctrine\ORM\EntityRepository
       try {
           $result = $qb->getSingleResult();
 
-          die($result);
-
           return $result;
 
       } catch (NoResultException $e) {
