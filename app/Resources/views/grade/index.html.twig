@@ -53,6 +53,7 @@
                     <tr class="text-center">
                       <td>N°</td>
                       <td>GRADES</td>
+                      <td>AGENTS</td>
                       <td>ETATS</td>
                     </tr>
                   </thead>
@@ -62,7 +63,12 @@
                         {% set i = i + 1 %}
                         <tr>
                           <td class="text-right">{{ i }}</td>
-                          <td><a href="{{ path('admin_grade_edit', { 'slug': grade.slug }) }}">{{ grade.libelle }}</a></td>
+                          <td class="text-center"><a href="{{ path('admin_grade_edit', { 'slug': grade.slug }) }}">{{ grade.libelle }}</a></td>
+                          <td class="text-center">
+                            <a href="{{ path('grade_agent_liste', { 'id': grade.id }) }}">
+                              {{ render(url('grade_agent_nombre', {'id': grade.id })) }}
+                            </a>
+                          </td>
                           <td class="text-center">
                             {% if grade.statut %}
                               Activé

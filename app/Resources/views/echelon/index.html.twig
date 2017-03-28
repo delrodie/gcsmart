@@ -53,6 +53,7 @@
                     <tr class="text-center">
                       <td>N°</td>
                       <td>ECHELONS</td>
+                      <td>AGENTS</td>
                       <td>ETATS</td>
                     </tr>
                   </thead>
@@ -63,6 +64,11 @@
                         <tr>
                           <td class="text-right">{{ i }}</td>
                           <td><a href="{{ path('admin_echelon_edit', { 'slug': echelon.slug }) }}">{{ echelon.libelle }}</a></td>
+                          <td class="text-center">
+                            <a href="{{ path('echelon_agent_liste', { 'id': echelon.id }) }}">
+                              {{ render(url('echelon_agent_nombre', {'id': echelon.id })) }}
+                            </a>
+                          </td>
                           <td class="text-center">
                             {% if echelon.statut %}
                               Activé

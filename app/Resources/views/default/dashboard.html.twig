@@ -30,6 +30,7 @@
                                         </div>
                                         <div class="panel-body p-t-10">
                                             <h2 class="m-t-0 m-b-15 text-warning font-light text-right">{{ render(url('admin_agent_nombre')) }}</h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> .</p>
                                         </div>
                                     </div>
                                 </div>
@@ -40,7 +41,10 @@
                                             <h4 class="panel-title text-muted m-t-10 font-light">Total recherches</h4>
                                         </div>
                                         <div class="panel-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15 text-success font-light text-right"><i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>1352</h2>
+                                            <h2 class="m-t-0 m-b-15 text-success font-light text-right">
+                                              <i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>{{ render(url('admin_recherche_total')) }}
+                                            </h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> .</p>
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +55,10 @@
                                             <h4 class="panel-title text-muted m-t-10 font-light">Total de ce mois</h4>
                                         </div>
                                         <div class="panel-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15 text-purple font-light text-right"><i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>500</h2>
+                                            <h2 class="m-t-0 m-b-15 text-purple font-light text-right">
+                                              <i class="mdi mdi-arrow-up-bold-circle-outline m-r-10"></i>{{ render(url('admin_recherche_mois_encours')) }}
+                                            </h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> .</p>
                                         </div>
                                     </div>
                                 </div>
@@ -59,11 +66,13 @@
                                 <div class="col-sm-6 col-lg-3">
                                     <div class="panel">
                                         <div class="panel-heading">
-                                            <h4 class="panel-title text-muted m-t-10 font-light">Monthly Earnings</h4>
+                                            <h4 class="panel-title text-muted m-t-10 font-light">Pourcentage de recherche</h4>
                                         </div>
                                         <div class="panel-body p-t-10">
-                                            <h2 class="m-t-0 m-b-15 text-pink font-light"><i class="mdi mdi-arrow-down-bold-circle-outline m-r-10"></i>56,21,256</h2>
-                                            <p class="text-muted m-b-0 m-t-20"><b>35%</b> From Last 1 Month</p>
+                                            <h2 class="m-t-0 m-b-15 text-pink font-light text-right">
+                                              {{ render(url('admin_recherche_pourcentage')) }}%
+                                            </h2>
+                                            <p class="text-muted m-b-0 m-t-20"><b></b> des recherches de cette année</p>
                                         </div>
                                     </div>
                                 </div>
@@ -77,11 +86,11 @@
 
                                             <ul class="list-inline widget-chart m-t-20 m-b-15 text-center">
                                                 <li>
-                                                    <h4 class=""><b>3654</b></h4>
-                                                    <p class="text-muted">Total</p>
+                                                    <h4 class=""><b>{{ render(url('admin_recherche_annee')) }}</b></h4>
+                                                    <p class="text-muted">Cette année</p>
                                                 </li>
                                                 <li>
-                                                    <h4 class=""><b>954</b></h4>
+                                                    <h4 class=""><b>{{ render(url('admin_recherche_mois_encours')) }}</b></h4>
                                                     <p class="text-muted">Ce mois</p>
                                                 </li>
                                             </ul>
@@ -114,9 +123,16 @@
 
 <script type="text/javascript">
     var chart = new Chartist.Line("#chart-with-area", {
-                labels: ["Fev", "Mars", "Avril"],
+                labels: ["Ja", "Fe", "Ma", "Av", "Ma", "Jn", "Ju", "Au", "Se", "Oc", "No", "De"],
                 series: [
-                    [0, 75, 125]
+                    [
+                      {{ render(url('mois', {'mois': 01})) }}, {{ render(url('mois', {'mois': 02})) }},
+                      {{ render(url('mois', {'mois': 03})) }}, {{ render(url('mois', {'mois': 04})) }},
+                      {{ render(url('mois', {'mois': 05})) }}, {{ render(url('mois', {'mois': 06})) }},
+                      {{ render(url('mois', {'mois': 07})) }}, {{ render(url('mois', {'mois': 08})) }},
+                      {{ render(url('mois', {'mois': 09})) }}, {{ render(url('mois', {'mois': 010})) }},
+                      {{ render(url('mois', {'mois': 011})) }}, {{ render(url('mois', {'mois': 012})) }}
+                  ]
                 ]
             }, { low: 0, showArea: !0, plugins: [Chartist.plugins.tooltip()] });
 </script>
