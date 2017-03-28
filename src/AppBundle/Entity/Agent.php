@@ -117,6 +117,13 @@ class Agent
     /**
      * @var string
      *
+     * @ORM\Column(name="datepass", type="string", length=10, nullable=true)
+     */
+    private $datepass;
+
+    /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"nom","prenoms","matricule"})
      * @ORM\Column(name="slug", type="string", length=255)
      */
@@ -746,5 +753,29 @@ class Agent
     public function getAvatar()
     {
         return $this->avatar;
+    }
+
+    /**
+     * Set datepass
+     *
+     * @param string $datepass
+     *
+     * @return Agent
+     */
+    public function setDatepass($datepass)
+    {
+        $this->datepass = $datepass;
+
+        return $this;
+    }
+
+    /**
+     * Get datepass
+     *
+     * @return string
+     */
+    public function getDatepass()
+    {
+        return $this->datepass;
     }
 }

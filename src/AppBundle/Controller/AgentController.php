@@ -45,6 +45,14 @@ class AgentController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $date = $agent->getDatenaiss();
+
+            $list = explode('/', $date);
+            $pass = $list[0].''.$list[1].''.$list[2];
+
+            $agent->setDatepass($pass);
+
             $em->persist($agent);
             $em->flush();
 

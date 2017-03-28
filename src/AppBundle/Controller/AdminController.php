@@ -157,7 +157,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/agent/{matricule}", name="admin_recherche_agent")
+     * @Route("/recherche-agent/{matricule}", name="admin_recherche_agent")
      */
     public function agentmatriculeAction($matricule)
     {
