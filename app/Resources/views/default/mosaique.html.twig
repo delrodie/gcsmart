@@ -34,6 +34,22 @@
                     <table>
                       <tbody>
                         <tr>
+                          <td colspan="6" class="fond-info">Informations générales</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="fond-blanc">.</td>
+                        </tr>
+                        <tr>
+                          <th>Nom &nbsp;</th>
+                          <td>&nbsp; : &nbsp;</td>
+                          <td>&nbsp; {{ agent.nom }}</td>
+                        </tr>
+                        <tr>
+                          <th>Prenoms &nbsp;</th>
+                          <td>&nbsp; : &nbsp;</td>
+                          <td>&nbsp; {{ agent.prenoms }}</td>
+                        </tr>
+                        <tr>
                           <th>Date de naissance &nbsp;</th>
                           <td>&nbsp; : &nbsp;</td>
                           <td>&nbsp; {{ agent.datenaiss }}</td>
@@ -54,14 +70,33 @@
                           <td>&nbsp; {{ agent.cni }}</td>
                         </tr>
                         <tr>
-                          <th>Service &nbsp;</th>
-                          <td>&nbsp; : &nbsp;</td>
-                          <td>&nbsp; {{ agent.service }}</td>
-                        </tr>
-                        <tr>
                           <th>Fonction &nbsp;</th>
                           <td>&nbsp; : &nbsp;</td>
                           <td>&nbsp; {{ agent.fonction }}</td>
+                        </tr>
+                        <tr>
+                          <th>Contact &nbsp;</th>
+                          <td>&nbsp; : &nbsp;</td>
+                          <td>&nbsp; {{ agent.contact }}</td>
+                        </tr>
+                        <tr>
+                          <th>Email &nbsp;</th>
+                          <td>&nbsp; : &nbsp;</td>
+                          <td>&nbsp; {{ agent.email }}</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="fond-blanc">.</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="fond-info">Etat de l'agent</td>
+                        </tr>
+                        <tr>
+                          <td colspan="6" class="fond-blanc">.</td>
+                        </tr>
+                        <tr>
+                          <th>Service &nbsp;</th>
+                          <td>&nbsp; : &nbsp;</td>
+                          <td>&nbsp; {{ agent.service }}</td>
                         </tr>
                         <tr>
                           <th>Date de prise de service &nbsp;</th>
@@ -88,23 +123,13 @@
                           <td>&nbsp; : &nbsp;</td>
                           <td>&nbsp; {{ agent.echelon }}</td>
                         </tr>
-                        <tr>
-                          <th>Contact &nbsp;</th>
-                          <td>&nbsp; : &nbsp;</td>
-                          <td>&nbsp; {{ agent.contact }}</td>
-                        </tr>
-                        <tr>
-                          <th>Email &nbsp;</th>
-                          <td>&nbsp; : &nbsp;</td>
-                          <td>&nbsp; {{ agent.email }}</td>
-                        </tr>
                       </tbody>
                     </table>
                   </p>
                   <hr>
                   <div class="row">
                     <div class="col-xs-6 col-xs-offset-5">
-                      <a href="{{ path('admin_agent_edit', { 'slug': agent.slug }) }}"><button type="button" class="btn btn-primary btn-block waves-effect">Modifier</button></a>
+                      <a href="{{ path('admin_agent_edit', { 'slug': agent.slug }) }}"><button type="button" class="btn btn-success btn-block waves-effect">Modifier</button></a>
                     </div>
                   </div>
                 </div>

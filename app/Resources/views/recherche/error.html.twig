@@ -16,16 +16,14 @@
 </div>
 <div class="content" >
   <div class="inner">
-    <h2>GC SMART 1.0</h2>
-    <b><i><p align="center" style="font-family:'Courier New', Courier, monospace"><!--[-->Bienvenue sur la plate forme de gestion et de contrôle des agents du ministère du commerce de Côte d'ivoire.<br> une solution pour gagner du temps sur l'administration et le contrôle du personnel <!--]--><br />
-          <!--[--> Une solution souple, évolutive et ouverte !<!--]--></p></i></b>
+    <b><i><p align="center" style="font-family:'Courier New', Courier, monospace"><!--[-->Bienvenue sur la plate forme de gestion et de contrôle des agents du ministère du commerce, <br> de l'artisanat et de la promotion des PME. Une solution souple, évolutive et ouverte <br> pour gagner du temps sur l'administration et le contrôle du personnel <!--]--><br />
+          </p></i></b>
   </div>
 </div>
 <nav>
     <ul>
-      <li class="btn-warning"><a href="#recherche"><b>RECHERCHER L'AGENT</b></a></li>
-      <li class="btn-info"><a href="{{ path('admin')}}"><b>ESPACE RESSOURCE HUMAINE</b></a></li>
-      <li class="btn-info"><a href="http://www.commerce.gouv.ci/contact.php"><b>Contact</b></a></li>
+      <li class="btn-warning"><a href="#recherche"><b>RECHERCHER AGENTS</b></a></li>
+      <li class="btn-success"><a href="{{ path('admin')}}"><b>RESSOURCE HUMAINE</b></a></li>
     </ul>
   </nav>
 </header>
@@ -67,21 +65,22 @@
             </div>
     </article>
     <!-- Recherche -->
-              <article id="recherche">
-                <div align="center">
-                  <form method="post"  action="{{ path('recherche_new') }}#reponse"  name="appbundle_recherche">
-                      <div class="row">
-                        <div class="col-xs-10 text-right">
-                          {{ form_widget(form.matricule) }}
-                          {{ form_widget(form) }}
-                        </div>
-                        <div class="col-xs-2 text-left">
-                          <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                        </div>
-                      </div>
-                  </form>
-                </div>
-              </article>
+    <article id="recherche">
+      <div align="center">
+        <form method="post"  action="{{ path('recherche_new') }}#reponse"  name="appbundle_recherche">
+            <div class="row">
+              <div class="col-xs-10 text-left">
+                <label for="">Veuillez entrez le matricule de l'agent recherché</label>
+                {{ form_widget(form.matricule) }}
+                {{ form_widget(form) }}
+              </div>
+              <div class="col-xs-2 text-left">
+                <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+        </form>
+      </div>
+    </article>
 </div>
 {% endblock %}
 

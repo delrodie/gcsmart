@@ -19,7 +19,7 @@ class RechercheType extends AbstractType
             ->add('matricule', TextType::class, array(
                   'attr'  => array(
                       'class' => 'form-control recherche select-matricule',
-                      'placeholder' => "Entrez le matricule de l'agent...",
+                      'placeholder' => "Saisir le matricule ...",
                       'autocomplete'  => 'off',
                       'maxlength' => '7'
                   ),

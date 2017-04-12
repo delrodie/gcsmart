@@ -22,6 +22,34 @@
 }
 
 .avatar {
-  height: 110px;
-  width: 110px;
+  height: 100px;
+  width: 100px;
+}
+
+.sidebar-menu > ul > li > i.fa{
+	color: #096e3e;
+}
+
+.couleur-verte{
+	color: #096e3e;
+}
+
+.couleur-orange{
+	color: #f87d06;
+}
+
+.fond-info{
+	background-color: #096e3e;
+	color: white;
+	font-size: .8em;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+
+.fond-blanc{
+	color: white;
 }
