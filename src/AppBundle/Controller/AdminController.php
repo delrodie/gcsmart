@@ -49,7 +49,7 @@ class AdminController extends Controller
             'paramsRoute' => array()
         );
 
-      return $this->render('Default/mosaique.html.twig', array(
+      return $this->render('default/mosaique.html.twig', array(
           'agents' => $agents,
           'pagination' => $pagination,
       ));
@@ -210,7 +210,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParGrade($id);
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -241,7 +241,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParEchelon($id);
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
