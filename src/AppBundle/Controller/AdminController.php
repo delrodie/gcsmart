@@ -24,7 +24,7 @@ class AdminController extends Controller
 
       //$users = $em->getRepository('AppBundle:User')->findAll();
 
-      return $this->render('Default/dashboard.html.twig', array(
+      return $this->render('default/dashboard.html.twig', array(
           //'users' => $users,
       ));
     }
@@ -64,7 +64,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgent();
 
-      return $this->render('Default/agent_nombre.html.twig', array(
+      return $this->render('default/agent_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -78,7 +78,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Recherche')->getNombreTotalRecherche();
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -92,7 +92,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Recherche')->getNombreRechercheDuMoisEncours();
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -106,7 +106,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Recherche')->getNombreRechercheAnneeEncours();
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -123,7 +123,7 @@ class AdminController extends Controller
 
       $nombre = round($mois*100/$annee, 1);
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -137,7 +137,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Recherche')->getNombreRechercheMois($mois);
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
@@ -179,7 +179,7 @@ class AdminController extends Controller
 
       $nombre = $em->getRepository('AppBundle:Agent')->getNombreAgentParService($id);
 
-      return $this->render('Default/recherche_total_nombre.html.twig', array(
+      return $this->render('default/recherche_total_nombre.html.twig', array(
           'nombre' => $nombre,
       ));
     }
