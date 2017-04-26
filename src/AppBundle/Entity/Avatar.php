@@ -148,7 +148,7 @@ class Avatar
         * @ORM\PostRemove()
         */
         public function removeUpload()
-        {
+        { //ar_dump($this->id); die();
           // En PostRemove, on n'a pas accès à l'id, on utilise notre nom sauvegardé
           if (file_exists($this->tempFilename)) {
               // On supprime le fichier

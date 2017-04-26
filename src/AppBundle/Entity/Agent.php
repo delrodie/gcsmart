@@ -186,7 +186,7 @@ class Agent
     private $service;
 
     /**
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Avatar", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Avatar", cascade={"persist"})
      */
      private $avatar;
 

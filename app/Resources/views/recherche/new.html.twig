@@ -43,8 +43,8 @@
                               {% endif %}
                           </a>
                           <div class="info">
-                              <h3>{{ agent.nom }} {{ agent.prenoms }}</h3>
-                              <p class="text-muted">{{ agent.matricule }}</p>
+                              <h3>{{ agent.nom }} {{ agent.prenoms }} est effectivement un agent de ce Ministère</h3>
+                              <!--<p class="">{{ agent.matricule }}</p>-->
                           </div>
                       </div>
                       <div class="clearfix"></div>
@@ -53,12 +53,12 @@
                         <div class="row">
                           <div class="col-xs-4 text-right col">Nom</div>
                           <div class="col-xs-1">&nbsp; : </div>
-                          <div class="col-xs-7 text-left col"> {{ agent.nom }}</div>
+                          <div class="col-xs-7 text-left col matricule"> {{ agent.nom }}</div>
                         </div>
                         <div class="row">
                           <div class="col-xs-4 text-right col">Prenoms</div>
                           <div class="col-xs-1">&nbsp; : </div>
-                          <div class="col-xs-7 text-left col"> {{ agent.prenoms }}</div>
+                          <div class="col-xs-7 text-left col matricule"> {{ agent.prenoms }}</div>
                         </div>
                         <div class="row">
                           <div class="col-xs-4 text-right col">Matricule</div>
@@ -66,19 +66,14 @@
                           <div class="col-xs-7 text-left col matricule"> {{ agent.matricule }}</div>
                         </div>
                         <div class="row">
-                          <div class="col-xs-4 text-right col">N° CNI</div>
-                          <div class="col-xs-1">&nbsp; : </div>
-                          <div class="col-xs-7 text-left col"> {{ agent.cni }}</div>
-                        </div>
-                        <div class="row">
                           <div class="col-xs-4 text-right col">Service</div>
                           <div class="col-xs-1">&nbsp; : </div>
-                          <div class="col-xs-7 text-left col"> {{ agent.service }}</div>
+                          <div class="col-xs-7 text-left col matricule"> {{ agent.service }}</div>
                         </div>
                         <div class="row">
                           <div class="col-xs-4 text-right col">Fonction</div>
                           <div class="col-xs-1">&nbsp; : </div>
-                          <div class="col-xs-7 text-left col"> {{ agent.fonction }}</div>
+                          <div class="col-xs-7 text-left col matricule"> {{ agent.fonction }}</div>
                         </div>
                       </p>
                       <p>
