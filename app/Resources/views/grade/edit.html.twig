@@ -74,6 +74,15 @@
                   </div>
                   </div>
                   {{ form_end(edit_form) }}
+                  <br>
+                  <div class="row">
+                    <div class="col-xs-2 col-xs-offset-9 text-right">
+                      {{ form_start(delete_form) }}
+                          <button type="submit" value="Supprimer" class="btn btn-danger btn-block waves-effect" onclick="return window.confirm('Voulez vous supprimer ce grade?');">Supprimer</button>
+                      {{ form_end(delete_form) }}
+                    </div>
+                  </div>
+                  <br><br>
                 </div>
               </div>
             </div>
